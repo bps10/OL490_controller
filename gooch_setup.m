@@ -6,7 +6,11 @@ function gooch = gooch_setup(LIGHT_REDUCTION, FPS, LOOPING, TRIGGER_MODE)
 % returns a handle to the gooch connection.
 %
 % Parameters:
-% 1. LIGHT_REDUCTION: set linear light reduction (bool). Default = false
+% 1. LIGHT_REDUCTION: set linear light reduction (bool). Default = false.
+% According to page 16 of the manual, 'The Light Reduction Control is used
+% to attenuate the output intensity without the need to modify individual
+% peak intensities ... This will reduce all mirror column hights by the
+% same ratio'.
 % 2. FPS: frames per second. Default = 256. Only useful in RAM mode. See
 % TRIGGER_MODE.
 % 3. LOOPING: set number of loops. Default = 0 (infinite).
