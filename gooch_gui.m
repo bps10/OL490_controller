@@ -3,9 +3,6 @@ function gooch_gui()
 % ------------
 % Create a GUI to control the gooch with hardware triggering.
 % TRIGGER_MODE = 1.
-
-    % import gooch library functions
-    import gooch.gooch_setup
     
     % Setup the gooch and get a handle to the controller.
     gooch = gooch_setup();
@@ -209,24 +206,16 @@ function gooch_gui()
         set(blue, 'Data', params.blue);
     end
 
-    function start_gooch(~, ~)
-        import gooch.gooch_set_RGB_sequence
-        import gooch.gooch_start_sequence
-        
+    function start_gooch(~, ~)        
         gooch_set_RGB_sequence(params, gooch);
         gooch_start_sequence(gooch);
     end
 
-    function stop_gooch(~, ~)
-        import gooch.gooch_pause_sequence
-        
+    function stop_gooch(~, ~)        
         gooch_pause_sequence(gooch);
     end
 
-    function end_program(~, ~)
-        import gooch.gooch_stop_sequence
-        import gooch.gooch_clear_sequence
-        
+    function end_program(~, ~)        
         gooch_stop_sequence(gooch);
         gooch_clear_sequence(gooch);
         uiresume(f);
