@@ -207,7 +207,7 @@ function gooch_gui()
     end
 
     function start_gooch(~, ~)        
-        gooch_set_RGB_sequence(params, gooch);
+        gooch_set_RGB_sequence(gooch, params);
         gooch_start_sequence(gooch);
     end
 

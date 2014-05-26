@@ -1,5 +1,5 @@
-function gooch_set_RGB_sequence(params, gooch)
-% gooch = gooch_set_RGB_sequence(params, gooch)
+function gooch_set_RGB_sequence(gooch, primaries)
+% gooch = gooch_set_RGB_sequence(gooch, primaries)
 % ------------------------------------------------
 % Create an RGB sequence for display with a DLP mirror and send the
 % sequence to the Gooch's RAM.
@@ -11,7 +11,7 @@ function gooch_set_RGB_sequence(params, gooch)
 
     % load RED peaks
     red = gooch.AddSpectrum();
-    gooch_add_peaks(gooch, red, params.red);
+    gooch_add_peaks(gooch, red, primaries.red);
 
     % add blank
     dark2 = gooch.AddSpectrum();
@@ -19,7 +19,7 @@ function gooch_set_RGB_sequence(params, gooch)
 
     % load GREEN peaks
     green = gooch.AddSpectrum();
-    gooch_add_peaks(gooch, green, params.green);
+    gooch_add_peaks(gooch, green, primaries.green);
 
     % add blank
     dark3 = gooch.AddSpectrum();
@@ -27,7 +27,7 @@ function gooch_set_RGB_sequence(params, gooch)
 
     % load GREEN peaks
     blue = gooch.AddSpectrum();
-    gooch_add_peaks(gooch, blue, params.blue);
+    gooch_add_peaks(gooch, blue, primaries.blue);
 
     % Send sequence to RAM
     err = gooch.SendToRam();

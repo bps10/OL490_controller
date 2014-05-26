@@ -16,13 +16,5 @@ function gooch_stop_sequence(gooch)
      end
     
     % Close the shutter
-    err = gooch.CloseShutter();
-    if err == OL490_SDK_Dll.eErrorCodes.Success
-        % Do nothing.
-    elseif err == OL490_SDK_Dll.eErrorCodes.NoAction
-         disp('Shutter already closed.');
-    else
-        disp(err);
-        error('ERROR: Shutter was not closed.');
-    end
+    gooch_shutter(gooch, 'close');
 

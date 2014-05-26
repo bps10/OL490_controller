@@ -12,11 +12,7 @@ function gooch_start_sequence(gooch)
         error('ERROR: StartAdv command did not work.');
     end
     
-    err = gooch.OpenShutter();
-    if err == OL490_SDK_Dll.eErrorCodes.Success
-    else
-        disp(err);
-        error('ERROR: Shutter did not open.');
-    end
+    % Open the shutter
+    gooch_shutter(gooch, 'open');
 
 end    

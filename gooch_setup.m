@@ -48,10 +48,7 @@ function gooch = gooch_setup(LIGHT_REDUCTION, FPS, LOOPING, TRIGGER_MODE)
     end
     
     % make sure shutter is closed while we work
-    shutter = gooch.CloseShutter();
-    if shutter == 0 || shutter == OL490_SDK_Dll.eErrorCodes.NoAction
-        disp('Shutter closed.');
-    end
+    gooch_shutter(gooch, 'close');
 
     % make sure mirrors are on
     mirrors = gooch.TurnMirrorsOn();
